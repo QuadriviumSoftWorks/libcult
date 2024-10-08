@@ -1,0 +1,13 @@
+INSTALL_DIR is used to set installation prefix
+
+Linux: make && sudo make install
+    - INSTALL_DIR defaults to "/usr/local"
+    - you can cross-compile on Linux via MinGW, and run tests via WINE
+Windows: make && make install INSTALL_DIR=<dev-folder>
+    - INSTALL_DIR defaults to
+
+TODOS:
+    - native install support
+
+You'll want to ensure INSTALL_DIR can be found by the
+compiler you're using.
