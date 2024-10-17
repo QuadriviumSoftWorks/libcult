@@ -17,9 +17,9 @@ void libcult_create (struct libcult *succ,
         struct libcult *curr, void *thread_info, void *arg0, void *arg1)
 {
     /* NOTE(jlactin): AVX-512 requires 64 byte alignment; AND by 63 */
-    uint8_t *top = (uint8_t *) ((size_t) (stack_base + stack_size) & ~63);
+    uint8_t *top = (uint8_t *) ((size_t) (stack_base + stack_size - 64) & ~63);
     uint8_t *vec = (top - 2048);
-    uint8_t *sp = vec;
+    uint8_t *sp = vec - 8;
 
     curr->stack.base = stack_base;
     curr->stack.size = stack_size;

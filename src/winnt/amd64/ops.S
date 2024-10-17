@@ -97,6 +97,9 @@ __libcult_restore:
 __libcult_create:
     .cfi_startproc
     .cfi_def_cfa_offset 0
+    xorl %eax, %eax
+    movq %rax, (%rdx)
+
     movq %rdx, CULT_STATE_RSP(%rcx)
     movq %rdx, CULT_STATE_RBP(%rcx)
     movq %r9, CULT_STATE_RIP(%rcx)
